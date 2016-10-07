@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.10",
+    "particle-api-js": "^6.0.7"
+  },
+  "name": "fitchen",
+  "version": "1.0.0",
+  "description": "fitchen",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thejerrytan/fitchen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thejerrytan/fitchen/issues"
+  },
+  "homepage": "https://github.com/thejerrytan/fitchen#readme"
+}
