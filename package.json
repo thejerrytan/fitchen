@@ -1,12 +1,20 @@
 {
   "dependencies": {
     "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "browserify": "^13.1.0",
     "chartist": "^0.9.8",
+    "chartist-plugin-axistitle": "0.0.1",
     "express": "^4.14.0",
     "jade": "^1.11.0",
+    "jquery": "^3.1.1",
+    "jsdom": "^9.6.0",
+    "location": "0.0.1",
+    "moment": "^2.15.1",
     "mongodb": "^2.2.10",
     "particle-api-js": "^6.0.7",
-    "phantomjs": "^2.1.7"
+    "phantomjs": "^2.1.7",
+    "xmlhttprequest": "^1.8.0"
   },
   "name": "fitchen",
   "version": "1.0.0",
