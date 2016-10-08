@@ -22,7 +22,7 @@ var insertDocument = function(db, data, callback) {
     if (err) {
     	console.log(err)
     } else {
-    	console.log("Inserted %d documents into the load collection", result.length)	
+    	console.log("Inserted %d documents into the load collection", result.result.length)	
     }
     callback(result)
   });
@@ -42,8 +42,8 @@ var findDocuments = function(db, start, end, callback) {
   		console.log(err)
   	} else {
 	    console.log("Query returns %d records", result.length);
+	    callback(result)
   	}
-    callback(result)
   });
 }
 
@@ -83,7 +83,7 @@ app.get('/data/:start/:end', function(req, res) {
 			console.log(err)
 		} else {
 			findDocuments(db, start, end, function(result) {
-				app.json(result)
+				res.json(result)
 				db.close()
 			})
 		}
