@@ -6,16 +6,18 @@ var assert      = require('assert');
 var bodyParser  = require('body-parser')
 var path        = require('path')
 var app         = express();
-app.use(function (req, res, next) {
-  bodyParser.json()       // to support JSON-encoded bodies
-  bodyParser.urlencoded({     // to support URL-encoded bodies
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
     extended: true
   })
-  express.static(path.join(__dirname, '/public'))
+)
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   next()
 })
+app.use(express.static(path.join(__dirname, '/public')))
 app.set('views', './views')
 app.set('view engine', 'jade')
 
