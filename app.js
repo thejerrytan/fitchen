@@ -55,6 +55,8 @@ app.get('/', function (req, res) {
 app.post('/fitchen/event/load', function(req, res){
 	res.setHeader('Content-Type', 'application/json')
 	var data = req.body
+	// Convert published_at from string to javascript Date object
+	data.published_at = new Date(data.published_at)
 	console.log(data)
 
 	// Insert into MongoDB
@@ -72,8 +74,8 @@ app.post('/fitchen/event/load', function(req, res){
 })
 
 app.get('/data/:start/:end', function(req, res) {
-	var start = req.params.start
-	var end   = req.params.end
+	var start = new Date(req.params.start)
+	var end   = new Date(req.params.end)
 	console.log(req.params.start)
 	console.log(req.params.end)
 
