@@ -24,7 +24,7 @@ var insertDocument = function(db, data, callback) {
     } else {
     	console.log("Inserted %d documents into the load collection", result.length)	
     }
-    (typeof(callback) === 'function') ? callback(result) : return result
+    callback(result)
   });
 }
 
@@ -43,7 +43,7 @@ var findDocuments = function(db, start, end, callback) {
   	} else {
 	    console.log("Query returns %d records", result.length);
   	}
-    (typeof(callback) === 'function') ? callback(result) : return result;
+    callback(result)
   });
 }
 
