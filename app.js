@@ -87,7 +87,7 @@ app.get('/data/:start/:end', function(req, res) {
 				db.close()
 			})
 		}
-	}
+	})
 })
 
 app.listen(5000, function () {
