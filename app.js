@@ -4,12 +4,18 @@ var express     = require('express')
 var MongoClient = require('mongodb').MongoClient
 var assert      = require('assert');
 var bodyParser  = require('body-parser')
+var path        = require('path')
 var app         = express();
-app.use(bodyParser.json())       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-}))
-
+app.use(function (req, res, next) {
+  bodyParser.json())       // to support JSON-encoded bodies
+  bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+  })
+  express.static(path.join(__dirname, '/public'))
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+})
+app.use()
 app.set('views', './views')
 app.set('view engine', 'jade')
 
@@ -49,7 +55,7 @@ var findDocuments = function(db, start, end, callback) {
 
 app.get('/', function (req, res) {
 	// Dashboard
-  res.send('Hello World!');
+  res.render('index', {title: 'Fitchen', message: 'Hello world!'})
 })
 
 app.post('/fitchen/event/load', function(req, res){

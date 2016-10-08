@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "body-parser": "^1.15.2",
+    "chartist": "^0.9.8",
     "express": "^4.14.0",
+    "jade": "^1.11.0",
     "mongodb": "^2.2.10",
     "particle-api-js": "^6.0.7",
     "phantomjs": "^2.1.7"
