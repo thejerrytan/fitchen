@@ -3,7 +3,8 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mongodb": "^2.2.10",
-    "particle-api-js": "^6.0.7"
+    "particle-api-js": "^6.0.7",
+    "phantomjs": "^2.1.7"
   },
   "name": "fitchen",
   "version": "1.0.0",
