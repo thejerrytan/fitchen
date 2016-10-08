@@ -7,7 +7,7 @@ var bodyParser  = require('body-parser')
 var path        = require('path')
 var app         = express();
 app.use(function (req, res, next) {
-  bodyParser.json())       // to support JSON-encoded bodies
+  bodyParser.json()       // to support JSON-encoded bodies
   bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: true
   })
@@ -15,7 +15,6 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 })
-app.use()
 app.set('views', './views')
 app.set('view engine', 'jade')
 
