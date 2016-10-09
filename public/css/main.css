@@ -1,0 +1,10 @@
+.dashboard {
+	color: #05EEFA;
+	font-size: 220%;
+}
+.dashboard .right-align {
+	text-align: right;
+}
+.dashboard .updated {
+	color: #FF8A8C;
+}

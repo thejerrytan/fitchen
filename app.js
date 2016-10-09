@@ -57,7 +57,15 @@ var findDocuments = function(db, start, end, callback) {
 
 app.get('/', function (req, res) {
 	// Dashboard
-  res.render('index', {title: 'Fitchen', message: 'Hello world!'})
+  res.render('index', {
+    title: 'Fitchen',
+    compartment: '(C1)',
+    category: 'Chicken',
+    temperature: 25,
+    weight: '20 Kg',
+    timestamp: '10 Oct 08:30 PM',
+    expiry: '5 Days'
+  })
 })
 
 app.post('/fitchen/event/load', function(req, res){
