@@ -4,5 +4,5 @@ webpage.open('http://localhost:5000/', function() {
 	setInterval(function(){
 	    webpage.render('screenshot.png')
 	    // phantom.exit()
-	}, 1000)
+	}, 3000)
 })
