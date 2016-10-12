@@ -77,7 +77,10 @@ app.post('/fitchen/event/load', function(req, res){
   	data.published_at = new Date(data.published_at) 
   }
   if (data.hasOwnProperty('createdAt')) {
-    data.published_at = new Date(data.published_at)
+    data.published_at = new Date(data.createdAt)
+  }
+  if (data.hasOwnProperty('OccurredAt')) {
+    data.published_at = new Date(data.OccurredAt)
   }
 	console.log(data)
 
