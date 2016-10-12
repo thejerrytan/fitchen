@@ -72,7 +72,12 @@ app.post('/fitchen/event/load', function(req, res){
 	res.setHeader('Content-Type', 'application/json')
 	var data = req.body
 	// Convert published_at from string to javascript Date object
-	data.published_at = new Date(data.published_at)
+  if (data.hasOwnProperty('published_at')) {
+  	data.published_at = new Date(data.published_at) 
+  }
+  if (data.hasOwnProperty('createdAt')) {
+    data.published_at = new Date(data.published_at)
+  }
 	console.log(data)
 
 	// Insert into MongoDB
