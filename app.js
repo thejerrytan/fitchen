@@ -41,10 +41,15 @@ var findDocuments = function(db, start, end, callback) {
   var collection = db.collection('load');
   // Find some documents 
   collection.find({
-  	published_at : {
-  		$gte : start,
-  		$lt  : end
-  	}
+  	// published_at : {
+  	// 	$gte : start,
+  	// 	$lt  : end
+  	// }
+  }, {
+    limit: 1, 
+    sort: { 
+      $natural: -1
+    } 
   }).toArray(function(err, result) {
   	if (err) {
   		console.log(err)
@@ -81,6 +86,9 @@ app.post('/fitchen/event/load', function(req, res){
   if (data.hasOwnProperty('OccurredAt')) {
     data.published_at = new Date(data.OccurredAt)
   }
+  if (data.hasOwnProperty('value3')) {
+    data.data = data.value3
+  }
 	console.log(data)
 
 	// Insert into MongoDB
@@ -100,8 +108,8 @@ app.post('/fitchen/event/load', function(req, res){
 app.get('/data/:start/:end', function(req, res) {
 	var start = new Date(req.params.start)
 	var end   = new Date(req.params.end)
-	console.log(req.params.start)
-	console.log(req.params.end)
+	// console.log(req.params.start)
+	// console.log(req.params.end)
 
 	// Retrieve from MongoDB
 	MongoClient.connect(url, function(err, db) {
