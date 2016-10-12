@@ -70,7 +70,6 @@ app.get('/', function (req, res) {
 
 app.post('/fitchen/event/load', function(req, res){
 	res.setHeader('Content-Type', 'application/json')
-  console.log(req)
 	var data = req.body
 	// Convert published_at from string to javascript Date object
   if (data.hasOwnProperty('published_at')) {
