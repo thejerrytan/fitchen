@@ -1,29 +1,32 @@
 $(document).ready(function(){
 	var url = "http://104.196.149.230:5000/data"
-	var getData = function(chart) {
+	var conversion_factor = 6 / 4000
+	var getData = function() {
 		var end   = new Date()
 		var start = new Date()
 		start.setMinutes(end.getMinutes()-1)
 		$.ajax({
 			url: url + '/' + start.toISOString() + '/' + end.toISOString(),
 			success: function(data, textStatus, jqXHR) {
+				var reading = data[0].data * conversion_factor
 				// console.log(textStatus)
-				var labels = []
-				var series = []
-				for(var i in data) {
-					labels.push(moment(data[i].published_at).format('LTS'))
-					series.push(data[i].data)
-				}
-				var chart_data = {
-				  // A labels array that can contain any sort of values
-				  labels: labels,
-				  // Our series array that contains series objects or in this case series data arrays
-				  series: [
-					series
-				  ]
-				}
+				// var labels = []
+				// var series = []
+				// for(var i in data) {
+				// 	labels.push(moment(data[i].published_at).format('LTS'))
+				// 	series.push(data[i].data)
+				// }
+				// var chart_data = {
+				//   // A labels array that can contain any sort of values
+				//   labels: labels,
+				//   // Our series array that contains series objects or in this case series data arrays
+				//   series: [
+				// 	series
+				//   ]
+				// }
 				// console.log(chart_data)
 				// chart.update(chart_data)
+				$('#weight').text(reading.toFixed(2))
 			}
 		})
 	}
@@ -58,5 +61,5 @@ $(document).ready(function(){
 	// 	]
 	// });
 
-	setInterval(getData, 3000, chart)
+	setInterval(getData, 3000)
 })
