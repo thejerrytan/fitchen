@@ -18927,7 +18927,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: url + '/' + start.toISOString() + '/' + end.toISOString(),
 			success: function(data, textStatus, jqXHR) {
-				var reading = data[0].data * conversion_factor
+				var reading = data[0].data
 				// console.log(textStatus)
 				// var labels = []
 				// var series = []
