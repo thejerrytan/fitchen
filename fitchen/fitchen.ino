@@ -53,7 +53,7 @@ void setup() {
   Serial.println(scale.get_value(5));   // print the average of 5 readings from the ADC minus the tare weight, set with tare()
 
   Serial.print("get units: \t\t");
-  unit = scale.get_units(5);
+  unit = scale.get_units(5) * 6.0/4000;
   Serial.println(unit, 1);        // print the average of 5 readings from the ADC minus tare weight, divided
             // by the SCALE parameter set with set_scale
 
@@ -67,7 +67,7 @@ void loop() {
   Serial.print(scale.get_units(), 1);
   Serial.print("\t| average:\t");
   Serial.println(scale.get_units(10), 1);
-  float value = scale.get_units(10);
+  float value = scale.get_units(10) * 6.0/4000;
 
   lcd.clear();
   

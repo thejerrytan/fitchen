@@ -68,7 +68,7 @@ app.get('/', function (req, res) {
     category: 'Chicken',
     temperature: 25,
     weight: '20 Kg',
-    timestamp: '10 Oct 08:30 PM',
+    timestamp: '15th Oct 2016',
     expiry: '5 Days'
   })
 })
